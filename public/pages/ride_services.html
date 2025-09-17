@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ride Services - RideFlow</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Explore RideFlow's premium ride services - Economy, Premium, Executive, Eco-Friendly, and Group options with real-time pricing and intelligent routing." />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frideflow9628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-light sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">RideFlow</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="ride_services.html" class="text-primary font-semibold">Services</a>
+                    <a href="driver_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Drive</a>
+                    <a href="city_insights.html" class="text-text-secondary hover:text-primary transition-smooth">City Insights</a>
+                    <a href="business_portal.html" class="text-text-secondary hover:text-primary transition-smooth">Business</a>
+                    <a href="account_dashboard.html" class="btn-primary">Sign In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border-light">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="ride_services.html" class="block px-3 py-2 text-primary font-semibold">Services</a>
+                    <a href="driver_hub.html" class="block px-3 py-2 text-text-secondary">Drive</a>
+                    <a href="city_insights.html" class="block px-3 py-2 text-text-secondary">City Insights</a>
+                    <a href="business_portal.html" class="block px-3 py-2 text-text-secondary">Business</a>
+                    <a href="account_dashboard.html" class="block px-3 py-2 btn-primary text-center mt-4">Sign In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-50 to-secondary-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl lg:text-5xl font-bold text-primary mb-6">
+                    Choose Your Perfect <span class="text-gradient font-accent">Ride</span>
+                </h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto">
+                    From eco-friendly commutes to executive luxury, discover the service tier that matches your lifestyle and values.
+                </p>
+            </div>
+
+            <!-- Interactive Pricing Calculator -->
+            <div class="bg-surface rounded-2xl shadow-medium p-6 max-w-4xl mx-auto">
+                <h3 class="text-xl font-semibold text-primary mb-6 text-center">Real-Time Pricing Calculator</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">From</label>
+                            <input type="text" placeholder="Pickup location" class="input-field" value="Downtown Plaza" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">To</label>
+                            <input type="text" placeholder="Destination" class="input-field" value="Airport Terminal" />
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Date & Time</label>
+                            <input type="datetime-local" class="input-field" value="2025-09-11T14:30" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Passengers</label>
+                            <select class="input-field">
+                                <option>1 passenger</option>
+                                <option>2 passengers</option>
+                                <option>3 passengers</option>
+                                <option>4+ passengers</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary mb-2">12.4 miles</div>
+                            <div class="text-sm text-text-secondary mb-4">Estimated distance</div>
+                            <button class="btn-primary w-full">Update Pricing</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Tier Selector -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Tier Navigation -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <button class="tier-btn active" data-tier="economy">Economy</button>
+                <button class="tier-btn" data-tier="premium">Premium</button>
+                <button class="tier-btn" data-tier="executive">Executive</button>
+                <button class="tier-btn" data-tier="eco-friendly">Eco-Friendly</button>
+                <button class="tier-btn" data-tier="group">Group</button>
+            </div>
+
+            <!-- Economy Tier -->
+            <div id="economy-tier" class="tier-content active">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-bold text-primary">Economy</h2>
+                            <span class="bg-success-100 text-success-700 px-3 py-1 rounded-full text-sm font-medium">Most Popular</span>
+                        </div>
+                        <p class="text-lg text-text-secondary">
+                            Reliable, affordable rides for everyday travel. Perfect for commuting, errands, and budget-conscious journeys.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Standard vehicles (Sedan, Compact)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Professional drivers</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Real-time tracking</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">24/7 customer support</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-primary-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-primary font-semibold">Current Rate</span>
+                                <span class="text-2xl font-bold text-primary">$18.50</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-text-secondary">
+                                <span>Estimated arrival: 3 min</span>
+                                <span>Duration: 28 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/116675/pexels-photo-116675.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Economy vehicle interior" class="w-full h-80 object-cover rounded-2xl shadow-medium" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <div class="text-sm font-semibold text-primary">Economy</div>
+                            <div class="text-xs text-text-secondary">Clean & Comfortable</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Economy Testimonials -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.pixabay.com/photo/2016/11/18/19/07/happy-1836445_1280.jpg" alt="Michael Thompson" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Michael Thompson</div>
+                                <div class="text-sm text-text-secondary">Daily Commuter</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "Perfect for my daily commute to work. Reliable, affordable, and the drivers are always professional. Couldn't ask for more!"
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Lisa Chen" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Lisa Chen</div>
+                                <div class="text-sm text-text-secondary">Student</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "As a student, Economy rides fit perfectly in my budget. The service is consistent and I always feel safe."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Tier -->
+            <div id="premium-tier" class="tier-content hidden">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center">
+                                <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-bold text-primary">Premium</h2>
+                            <span class="bg-secondary-100 text-secondary-700 px-3 py-1 rounded-full text-sm font-medium">Upgraded</span>
+                        </div>
+                        <p class="text-lg text-text-secondary">
+                            Enhanced comfort and style for important occasions. Newer vehicles with premium amenities for a superior experience.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Premium vehicles (BMW, Audi, Mercedes)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Leather interiors & climate control</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Phone chargers & WiFi</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Complimentary water & mints</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-secondary-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-secondary font-semibold">Current Rate</span>
+                                <span class="text-2xl font-bold text-secondary">$28.75</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-text-secondary">
+                                <span>Estimated arrival: 4 min</span>
+                                <span>Duration: 25 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Premium vehicle interior" class="w-full h-80 object-cover rounded-2xl shadow-medium" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <div class="text-sm font-semibold text-secondary">Premium</div>
+                            <div class="text-xs text-text-secondary">Luxury & Comfort</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Testimonials -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="David Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">David Rodriguez</div>
+                                <div class="text-sm text-text-secondary">Sales Executive</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "Premium service is perfect for client meetings. The luxury vehicles make a great impression and the amenities are top-notch."
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Amanda Foster" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Amanda Foster</div>
+                                <div class="text-sm text-text-secondary">Marketing Director</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "The leather seats and climate control make every ride comfortable. Worth the upgrade for special occasions."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Executive Tier -->
+            <div id="executive-tier" class="tier-content hidden">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center">
+                                <svg class="h-6 w-6 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-bold text-primary">Executive</h2>
+                            <span class="bg-accent-100 text-accent-700 px-3 py-1 rounded-full text-sm font-medium">Luxury</span>
+                        </div>
+                        <p class="text-lg text-text-secondary">
+                            Ultimate luxury experience with high-end vehicles and white-glove service. Perfect for VIP transportation and special events.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Luxury vehicles (Tesla Model S, BMW 7 Series)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Professional chauffeur service</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Premium refreshments & newspapers</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Priority booking & concierge service</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-accent-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-accent-700 font-semibold">Current Rate</span>
+                                <span class="text-2xl font-bold text-accent-700">$45.20</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-text-secondary">
+                                <span>Estimated arrival: 6 min</span>
+                                <span>Duration: 22 min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Executive vehicle interior" class="w-full h-80 object-cover rounded-2xl shadow-medium" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <div class="text-sm font-semibold text-accent-700">Executive</div>
+                            <div class="text-xs text-text-secondary">VIP Experience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Executive Testimonials -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Robert Kim" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2016/11/18/19/07/happy-1836445_1280.jpg'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Robert Kim</div>
+                                <div class="text-sm text-text-secondary">CEO</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "Executive service is unmatched. The chauffeurs are professional and the vehicles are immaculate. Perfect for important business meetings."
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Victoria Martinez" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2761&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Victoria Martinez</div>
+                                <div class="text-sm text-text-secondary">Investment Banker</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "The luxury and attention to detail in Executive rides is exceptional. Worth every penny for special occasions."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Eco-Friendly Tier -->
+            <div id="eco-friendly-tier" class="tier-content hidden">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center">
+                                <svg class="h-6 w-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-bold text-primary">Eco-Friendly</h2>
+                            <span class="bg-success-100 text-success-700 px-3 py-1 rounded-full text-sm font-medium">Sustainable</span>
+                        </div>
+                        <p class="text-lg text-text-secondary">
+                            Reduce your carbon footprint with hybrid and electric vehicles. Sustainable transportation that doesn't compromise on comfort.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Hybrid & electric vehicles (Tesla, Prius)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Carbon footprint tracking</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Eco-rewards program</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Tree planting partnerships</span>
+                            </div>
+                        </div>
+
+                        <!-- Carbon Impact Display -->
+                        <div class="bg-success-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-success font-semibold">Current Rate</span>
+                                <span class="text-2xl font-bold text-success">$22.30</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-text-secondary mb-3">
+                                <span>Estimated arrival: 5 min</span>
+                                <span>Duration: 26 min</span>
+                            </div>
+                            <div class="bg-success-100 rounded-lg p-3">
+                                <div class="text-sm font-semibold text-success mb-1">Environmental Impact</div>
+                                <div class="text-xs text-success-700">This ride saves 4.2 lbs CO₂ vs standard vehicle</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Eco-friendly vehicle" class="w-full h-80 object-cover rounded-2xl shadow-medium" loading="lazy" onerror="this.src='https://images.pexels.com/photos/110844/pexels-photo-110844.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <div class="text-sm font-semibold text-success">Eco-Friendly</div>
+                            <div class="text-xs text-text-secondary">Zero Emissions</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Eco-Friendly Testimonials -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg" alt="Emma Wilson" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Emma Wilson</div>
+                                <div class="text-sm text-text-secondary">Environmental Consultant</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "Love seeing my carbon footprint reduction with each ride. The electric vehicles are quiet and comfortable too!"
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3" alt="James Park" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">James Park</div>
+                                <div class="text-sm text-text-secondary">Sustainability Manager</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "The eco-rewards program is fantastic. I feel good about my transportation choices and earn points for future rides."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Group Tier -->
+            <div id="group-tier" class="tier-content hidden">
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center">
+                                <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <h2 class="text-3xl font-bold text-primary">Group</h2>
+                            <span class="bg-primary-100 text-primary px-3 py-1 rounded-full text-sm font-medium">6-8 People</span>
+                        </div>
+                        <p class="text-lg text-text-secondary">
+                            Spacious vehicles for group travel, events, and celebrations. Perfect for airport transfers, parties, and team outings.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Large vehicles (SUV, Van, Minibus)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Seats 6-8 passengers comfortably</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Extra luggage space</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-primary">Split payment options</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-primary-50 rounded-lg p-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-primary font-semibold">Current Rate</span>
+                                <span class="text-2xl font-bold text-primary">$52.80</span>
+                            </div>
+                            <div class="flex justify-between text-sm text-text-secondary mb-3">
+                                <span>Estimated arrival: 8 min</span>
+                                <span>Duration: 30 min</span>
+                            </div>
+                            <div class="text-xs text-text-secondary">
+                                $6.60 per person (8 passengers)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/1592384/pexels-photo-1592384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Group vehicle interior" class="w-full h-80 object-cover rounded-2xl shadow-medium" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <div class="text-sm font-semibold text-primary">Group</div>
+                            <div class="text-xs text-text-secondary">Spacious & Social</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group Testimonials -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=2761&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Sophie Turner" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Sophie Turner</div>
+                                <div class="text-sm text-text-secondary">Event Coordinator</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "Perfect for our team events! The split payment feature makes it easy to coordinate group transportation."
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <img src="https://images.pixabay.com/photo/2016/11/18/19/07/happy-1836445_1280.jpg" alt="Alex Johnson" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div>
+                                <div class="font-semibold text-primary">Alex Johnson</div>
+                                <div class="text-sm text-text-secondary">Wedding Planner</div>
+                            </div>
+                        </div>
+                        <p class="text-text-secondary">
+                            "Group rides are ideal for wedding parties and special events. Spacious, comfortable, and cost-effective."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Route Optimizer Section -->
+    <section class="py-20 bg-gradient-to-r from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Intelligent Route Optimization
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Our AI-powered routing system reduces travel time and environmental impact while ensuring the smoothest ride possible.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-primary mb-2">Real-Time Traffic Analysis</h3>
+                            <p class="text-text-secondary">Dynamic route adjustments based on live traffic conditions, accidents, and road closures.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-primary mb-2">Predictive Routing</h3>
+                            <p class="text-text-secondary">Machine learning algorithms predict optimal routes based on historical data and patterns.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-success-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <svg class="h-6 w-6 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-primary mb-2">Eco-Friendly Paths</h3>
+                            <p class="text-text-secondary">Prioritize routes that minimize fuel consumption and carbon emissions without sacrificing efficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-surface rounded-lg p-6 shadow-medium">
+                        <h4 class="font-semibold text-primary mb-4">Route Optimization Benefits</h4>
+                        <div class="grid grid-cols-3 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-primary">23%</div>
+                                <div class="text-sm text-text-secondary">Faster Routes</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-secondary">18%</div>
+                                <div class="text-sm text-text-secondary">Fuel Savings</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-success">31%</div>
+                                <div class="text-sm text-text-secondary">Less Emissions</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Route optimization map" class="w-full h-96 object-cover rounded-2xl shadow-medium" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    
+                    <!-- Route Overlay -->
+                    <div class="absolute inset-0 bg-primary/10 rounded-2xl flex items-center justify-center">
+                        <div class="bg-surface/90 backdrop-blur-sm rounded-lg p-4 text-center">
+                            <div class="text-lg font-semibold text-primary mb-2">Optimized Route</div>
+                            <div class="text-sm text-text-secondary">12.4 miles • 22 min • 4.2 lbs CO₂ saved</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Availability Map -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Service Coverage Areas
+                </h2>
+                <p class="text-lg text-text-secondary">
+                    Explore where our services are available and see our expansion timeline
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Coverage Map -->
+                <div class="lg:col-span-2">
+                    <div class="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-6 h-96 relative overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Service coverage map" class="w-full h-full object-cover rounded-lg opacity-80" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        
+                        <!-- Coverage Indicators -->
+                        <div class="absolute top-1/4 left-1/3 w-6 h-6 bg-primary rounded-full animate-pulse shadow-medium"></div>
+                        <div class="absolute top-1/2 right-1/4 w-6 h-6 bg-secondary rounded-full animate-pulse shadow-medium"></div>
+                        <div class="absolute bottom-1/3 left-1/2 w-6 h-6 bg-success rounded-full animate-pulse shadow-medium"></div>
+                        
+                        <!-- Legend -->
+                        <div class="absolute bottom-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg p-3">
+                            <div class="text-sm font-semibold text-primary mb-2">Service Areas</div>
+                            <div class="space-y-1">
+                                <div class="flex items-center space-x-2 text-xs">
+                                    <div class="w-3 h-3 bg-primary rounded-full"></div>
+                                    <span class="text-text-secondary">All Services</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs">
+                                    <div class="w-3 h-3 bg-secondary rounded-full"></div>
+                                    <span class="text-text-secondary">Economy & Premium</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-xs">
+                                    <div class="w-3 h-3 bg-success rounded-full"></div>
+                                    <span class="text-text-secondary">Coming Soon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expansion Timeline -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-primary">Expansion Timeline</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-3 h-3 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-semibold text-primary">Downtown Core</div>
+                                <div class="text-sm text-text-secondary">All services available</div>
+                                <div class="text-xs text-success">Active since 2023</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-3 h-3 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-semibold text-primary">Suburban Areas</div>
+                                <div class="text-sm text-text-secondary">Economy & Premium</div>
+                                <div class="text-xs text-success">Expanded Q2 2024</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-3 h-3 bg-warning rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-semibold text-primary">Airport Corridor</div>
+                                <div class="text-sm text-text-secondary">All services</div>
+                                <div class="text-xs text-warning">Q1 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3">
+                            <div class="w-3 h-3 bg-success rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <div class="font-semibold text-primary">Tech District</div>
+                                <div class="text-sm text-text-secondary">Eco-Friendly focus</div>
+                                <div class="text-xs text-success">Q2 2025</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-primary-50 rounded-lg p-4">
+                        <div class="text-sm font-semibold text-primary mb-2">Request Service</div>
+                        <p class="text-xs text-text-secondary mb-3">
+                            Don't see your area? Let us know where you'd like RideFlow service.
+                        </p>
+                        <button class="btn-primary w-full text-sm py-2">Request Coverage</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                Ready to Experience Premium Transportation?
+            </h2>
+            <p class="text-lg mb-8 opacity-90">
+                Choose the service tier that matches your needs and book your ride in seconds.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-accent px-8 py-4 text-lg">
+                    Book Your Ride Now
+                </button>
+                <a href="account_dashboard.html" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/30 transition-smooth">
+                    Create Account
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="h-8 w-8 text-accent mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <span class="text-xl font-bold">RideFlow</span>
+                    </div>
+                    <p class="text-primary-200">
+                        Elevating urban transportation through smart mobility and community connection.
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="ride_services.html" class="hover:text-white transition-smooth">Ride Services</a></li>
+                        <li><a href="driver_hub.html" class="hover:text-white transition-smooth">Driver Hub</a></li>
+                        <li><a href="business_portal.html" class="hover:text-white transition-smooth">Business Portal</a></li>
+                        <li><a href="city_insights.html" class="hover:text-white transition-smooth">City Insights</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">About Us</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Careers</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Press</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Safety</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Contact</a></li>
+                        <li><a href="account_dashboard.html" class="hover:text-white transition-smooth">Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 RideFlow. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Privacy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Terms</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Tier Switching -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tier switching functionality
+        const tierButtons = document.querySelectorAll('.tier-btn');
+        const tierContents = document.querySelectorAll('.tier-content');
+
+        tierButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetTier = this.getAttribute('data-tier');
+                
+                // Remove active class from all buttons and contents
+                tierButtons.forEach(btn => btn.classList.remove('active'));
+                tierContents.forEach(content => {
+                    content.classList.remove('active');
+                    content.classList.add('hidden');
+                });
+                
+                // Add active class to clicked button and corresponding content
+                this.classList.add('active');
+                const targetContent = document.getElementById(targetTier + '-tier');
+                if (targetContent) {
+                    targetContent.classList.remove('hidden');
+                    targetContent.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .tier-btn {
+            @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 ease-out border-2 border-border;
+        }
+        
+        .tier-btn:hover {
+            @apply border-primary-300 bg-primary-50;
+        }
+        
+        .tier-btn.active {
+            @apply bg-primary text-white border-primary;
+        }
+        
+        .tier-content {
+            @apply transition-all duration-400 ease-out;
+        }
+        
+        .tier-content.hidden {
+            @apply opacity-0;
+        }
+        
+        .tier-content.active {
+            @apply opacity-100;
+        }
+    </style>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

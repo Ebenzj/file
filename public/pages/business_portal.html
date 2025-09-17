@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Portal - RideFlow Enterprise Solutions</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Enterprise transportation management platform with ROI calculators, expense management, team coordination, and comprehensive business solutions." />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frideflow9628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-light sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">RideFlow</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="ride_services.html" class="text-text-secondary hover:text-primary transition-smooth">Services</a>
+                    <a href="driver_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Drive</a>
+                    <a href="city_insights.html" class="text-text-secondary hover:text-primary transition-smooth">City Insights</a>
+                    <a href="business_portal.html" class="text-primary font-semibold">Business</a>
+                    <a href="account_dashboard.html" class="btn-primary">Sign In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border-light">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="ride_services.html" class="block px-3 py-2 text-text-secondary">Services</a>
+                    <a href="driver_hub.html" class="block px-3 py-2 text-text-secondary">Drive</a>
+                    <a href="city_insights.html" class="block px-3 py-2 text-text-secondary">City Insights</a>
+                    <a href="business_portal.html" class="block px-3 py-2 text-primary font-semibold">Business</a>
+                    <a href="account_dashboard.html" class="block px-3 py-2 btn-primary text-center mt-4">Sign In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-primary-50 to-secondary-50 py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Content -->
+                <div class="space-y-8">
+                    <div>
+                        <h1 class="text-4xl lg:text-6xl font-bold text-primary leading-tight mb-6">
+                            Enterprise 
+                            <span class="text-gradient font-accent">Transportation</span>
+                            Solutions
+                        </h1>
+                        <p class="text-lg text-text-secondary leading-relaxed mb-8">
+                            Streamline your corporate transportation with intelligent expense management, 
+                            team coordination, and comprehensive business solutions that scale with your organization.
+                        </p>
+                    </div>
+
+                    <!-- Key Benefits -->
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-success-100 rounded-full flex items-center justify-center">
+                                <svg class="h-5 w-5 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-primary">40% Cost Reduction</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-secondary-100 rounded-full flex items-center justify-center">
+                                <svg class="h-5 w-5 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-primary">Real-time Analytics</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-accent-100 rounded-full flex items-center justify-center">
+                                <svg class="h-5 w-5 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-primary">Enterprise Security</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="h-5 w-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <span class="font-semibold text-primary">Team Management</span>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn-primary px-8 py-4 text-lg">
+                            Start Free Trial
+                        </button>
+                        <button class="bg-white border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary-50 transition-smooth">
+                            Schedule Demo
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Side - ROI Calculator -->
+                <div class="bg-surface rounded-2xl shadow-heavy p-8">
+                    <h3 class="text-2xl font-bold text-primary mb-6">ROI Calculator</h3>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Number of Employees</label>
+                            <input type="number" value="50" class="input-field" id="employees" />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Average Monthly Rides per Employee</label>
+                            <input type="number" value="8" class="input-field" id="rides" />
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-primary mb-2">Current Transportation Budget (Monthly)</label>
+                            <input type="number" value="12000" class="input-field" id="budget" />
+                        </div>
+
+                        <!-- Results -->
+                        <div class="bg-primary-50 rounded-lg p-6 space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Current Monthly Cost:</span>
+                                <span class="font-bold text-primary">$12,000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">RideFlow Business Cost:</span>
+                                <span class="font-bold text-secondary">$7,200</span>
+                            </div>
+                            <div class="border-t border-border pt-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold text-primary">Monthly Savings:</span>
+                                    <span class="font-bold text-success text-xl">$4,800</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-semibold text-primary">Annual Savings:</span>
+                                    <span class="font-bold text-success text-xl">$57,600</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Tiers Management -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Service Tier Management
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Set employee access levels and manage transportation policies across your organization
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Executive Tier -->
+                <div class="card-elevated border-2 border-accent-200 relative">
+                    <div class="absolute -top-3 left-6 bg-accent px-4 py-1 rounded-full">
+                        <span class="text-sm font-semibold text-primary">Executive</span>
+                    </div>
+                    <div class="pt-4">
+                        <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="h-8 w-8 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-4 text-center">Premium Luxury</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Luxury vehicles only</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Priority booking</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Unlimited rides</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Concierge service</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">$45</div>
+                            <div class="text-sm text-text-secondary">per ride average</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Premium Tier -->
+                <div class="card-elevated border-2 border-secondary-200 relative">
+                    <div class="absolute -top-3 left-6 bg-secondary px-4 py-1 rounded-full">
+                        <span class="text-sm font-semibold text-white">Premium</span>
+                    </div>
+                    <div class="pt-4">
+                        <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-4 text-center">Client Meetings</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Premium vehicles</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Professional drivers</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Flexible booking</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Expense integration</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">$28</div>
+                            <div class="text-sm text-text-secondary">per ride average</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Economy Tier -->
+                <div class="card-elevated border-2 border-primary-200 relative">
+                    <div class="absolute -top-3 left-6 bg-primary px-4 py-1 rounded-full">
+                        <span class="text-sm font-semibold text-white">Economy</span>
+                    </div>
+                    <div class="pt-4">
+                        <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-primary mb-4 text-center">Daily Commutes</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Reliable vehicles</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Cost-effective</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Bulk ride discounts</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <svg class="h-5 w-5 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-text-secondary">Monthly limits</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <div class="text-2xl font-bold text-primary">$18</div>
+                            <div class="text-sm text-text-secondary">per ride average</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expense Management Dashboard -->
+    <section class="py-20 bg-gradient-to-r from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Dashboard Preview -->
+                <div class="relative">
+                    <div class="bg-surface rounded-2xl shadow-heavy p-6 overflow-hidden">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-xl font-bold text-primary">Expense Dashboard</h3>
+                            <div class="flex space-x-2">
+                                <div class="w-3 h-3 bg-error rounded-full"></div>
+                                <div class="w-3 h-3 bg-warning rounded-full"></div>
+                                <div class="w-3 h-3 bg-success rounded-full"></div>
+                            </div>
+                        </div>
+
+                        <!-- Chart Placeholder -->
+                        <div class="bg-primary-50 rounded-lg p-4 mb-6 h-48 flex items-center justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 400 200">
+                                <!-- Bar Chart -->
+                                <rect x="50" y="150" width="40" height="40" fill="#1a237e" rx="2"/>
+                                <rect x="110" y="120" width="40" height="70" fill="#00acc1" rx="2"/>
+                                <rect x="170" y="100" width="40" height="90" fill="#ffc107" rx="2"/>
+                                <rect x="230" y="130" width="40" height="60" fill="#4caf50" rx="2"/>
+                                <rect x="290" y="110" width="40" height="80" fill="#ff9800" rx="2"/>
+                                
+                                <!-- Labels -->
+                                <text x="70" y="205" text-anchor="middle" class="text-xs fill-current text-text-secondary">Jan</text>
+                                <text x="130" y="205" text-anchor="middle" class="text-xs fill-current text-text-secondary">Feb</text>
+                                <text x="190" y="205" text-anchor="middle" class="text-xs fill-current text-text-secondary">Mar</text>
+                                <text x="250" y="205" text-anchor="middle" class="text-xs fill-current text-text-secondary">Apr</text>
+                                <text x="310" y="205" text-anchor="middle" class="text-xs fill-current text-text-secondary">May</text>
+                            </svg>
+                        </div>
+
+                        <!-- Stats Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-success-50 rounded-lg p-4">
+                                <div class="text-2xl font-bold text-success">$7,200</div>
+                                <div class="text-sm text-text-secondary">This Month</div>
+                            </div>
+                            <div class="bg-primary-50 rounded-lg p-4">
+                                <div class="text-2xl font-bold text-primary">342</div>
+                                <div class="text-sm text-text-secondary">Total Rides</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Features -->
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                            Real-time Expense Management
+                        </h2>
+                        <p class="text-lg text-text-secondary mb-8">
+                            Comprehensive spending analytics with department-wise breakdowns and seamless integration 
+                            with major corporate expense platforms.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary mb-2">Live Analytics</h3>
+                                <p class="text-text-secondary">Real-time spending insights with customizable dashboards and automated reporting.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary mb-2">Platform Integration</h3>
+                                <p class="text-text-secondary">Seamless integration with Concur, Expensify, and other major expense platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary mb-2">Cost Center Allocation</h3>
+                                <p class="text-text-secondary">Automatic cost center assignment with department-wise budget tracking and controls.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Coordination Features -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Team Coordination & Management
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Streamline group transportation with advanced booking, tracking, and coordination features
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Group Booking -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Group Ride Booking</h3>
+                    <p class="text-text-secondary">
+                        Coordinate multiple rides for events, meetings, and team outings with synchronized scheduling.
+                    </p>
+                </div>
+
+                <!-- Airport Transfers -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Airport Transfers</h3>
+                    <p class="text-text-secondary">
+                        Flight tracking integration with automatic pickup adjustments for delays and early arrivals.
+                    </p>
+                </div>
+
+                <!-- Client Transportation -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Client Transportation</h3>
+                    <p class="text-text-secondary">
+                        Branded experience options with premium vehicles and professional service for client meetings.
+                    </p>
+                </div>
+
+                <!-- User Management -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">User Management</h3>
+                    <p class="text-text-secondary">
+                        Comprehensive admin panel with role-based access, approval workflows, and user permissions.
+                    </p>
+                </div>
+
+                <!-- Ride Tracking -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-warning-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-warning" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Live Ride Tracking</h3>
+                    <p class="text-text-secondary">
+                        Real-time tracking for duty of care compliance with emergency contact integration and alerts.
+                    </p>
+                </div>
+
+                <!-- Reporting -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-error-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="h-8 w-8 text-error" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Custom Reporting</h3>
+                    <p class="text-text-secondary">
+                        Detailed analytics with customizable reports, automated scheduling, and executive summaries.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies -->
+    <section class="py-20 bg-gradient-to-br from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Success Stories
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    See how companies of all sizes have transformed their transportation with RideFlow
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Case Study 1 -->
+                <div class="card-elevated">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="TechCorp office building" class="w-16 h-16 rounded-lg object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">TechCorp Solutions</h3>
+                            <p class="text-text-secondary">500+ employees • Technology</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Cost Reduction:</span>
+                            <span class="font-bold text-success text-lg">42%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Employee Satisfaction:</span>
+                            <span class="font-bold text-primary text-lg">95%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Monthly Rides:</span>
+                            <span class="font-bold text-secondary text-lg">2,400</span>
+                        </div>
+                    </div>
+
+                    <blockquote class="text-text-secondary italic border-l-4 border-primary pl-4">
+                        "RideFlow's business portal has revolutionized how we manage corporate transportation. 
+                        The real-time analytics and seamless expense integration have saved us countless hours."
+                    </blockquote>
+                    
+                    <div class="mt-4 text-sm text-text-secondary">
+                        — Sarah Mitchell, Operations Director
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="card-elevated">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pixabay.com/photo/2017/07/31/11/21/people-2557396_1280.jpg" alt="Global Consulting team" class="w-16 h-16 rounded-lg object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=2926&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <h3 class="text-xl font-bold text-primary">Global Consulting</h3>
+                            <p class="text-text-secondary">200+ employees • Consulting</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Time Savings:</span>
+                            <span class="font-bold text-success text-lg">35 hrs/month</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Client Satisfaction:</span>
+                            <span class="font-bold text-primary text-lg">98%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Airport Transfers:</span>
+                            <span class="font-bold text-secondary text-lg">450/month</span>
+                        </div>
+                    </div>
+
+                    <blockquote class="text-text-secondary italic border-l-4 border-primary pl-4">
+                        "The client transportation features with branded experience have elevated our service quality. 
+                        Our clients consistently praise the professional and reliable service."
+                    </blockquote>
+                    
+                    <div class="mt-4 text-sm text-text-secondary">
+                        — Michael Chen, Managing Partner
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                Ready to Transform Your Corporate Transportation?
+            </h2>
+            <p class="text-lg mb-8 opacity-90">
+                Join hundreds of companies that have streamlined their business transportation with RideFlow's enterprise solutions.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="btn-accent px-8 py-4 text-lg">
+                    Start Free 30-Day Trial
+                </button>
+                <button class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/30 transition-smooth">
+                    Schedule Demo Call
+                </button>
+            </div>
+            <p class="text-sm opacity-75 mt-4">
+                No setup fees • Cancel anytime • Dedicated support included
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="h-8 w-8 text-accent mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <span class="text-xl font-bold">RideFlow</span>
+                    </div>
+                    <p class="text-primary-200">
+                        Elevating corporate transportation through smart mobility and enterprise solutions.
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="ride_services.html" class="hover:text-white transition-smooth">Ride Services</a></li>
+                        <li><a href="driver_hub.html" class="hover:text-white transition-smooth">Driver Hub</a></li>
+                        <li><a href="business_portal.html" class="hover:text-white transition-smooth">Business Portal</a></li>
+                        <li><a href="city_insights.html" class="hover:text-white transition-smooth">City Insights</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">About Us</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Careers</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Press</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Safety</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Contact</a></li>
+                        <li><a href="account_dashboard.html" class="hover:text-white transition-smooth">Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 RideFlow. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Privacy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Terms</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // ROI Calculator
+        function updateROI() {
+            const employees = document.getElementById('employees').value || 50;
+            const rides = document.getElementById('rides').value || 8;
+            const budget = document.getElementById('budget').value || 12000;
+            
+            const rideflowCost = employees * rides * 18; // $18 average per ride
+            const savings = budget - rideflowCost;
+            const annualSavings = savings * 12;
+            
+            // Update display (would be implemented with actual DOM manipulation)
+            console.log(`Monthly Savings: $${savings}, Annual Savings: $${annualSavings}`);
+        }
+
+        // Add event listeners for ROI calculator inputs
+        document.getElementById('employees').addEventListener('input', updateROI);
+        document.getElementById('rides').addEventListener('input', updateROI);
+        document.getElementById('budget').addEventListener('input', updateROI);
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

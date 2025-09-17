@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>City Insights - RideFlow Urban Intelligence</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Real-time urban mobility intelligence and data-driven insights for smarter city transportation with RideFlow." />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frideflow9628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-light sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">RideFlow</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="ride_services.html" class="text-text-secondary hover:text-primary transition-smooth">Services</a>
+                    <a href="driver_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Drive</a>
+                    <a href="city_insights.html" class="text-primary font-semibold">City Insights</a>
+                    <a href="business_portal.html" class="text-text-secondary hover:text-primary transition-smooth">Business</a>
+                    <a href="account_dashboard.html" class="btn-primary">Sign In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border-light">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="ride_services.html" class="block px-3 py-2 text-text-secondary">Services</a>
+                    <a href="driver_hub.html" class="block px-3 py-2 text-text-secondary">Drive</a>
+                    <a href="city_insights.html" class="block px-3 py-2 text-primary font-semibold">City Insights</a>
+                    <a href="business_portal.html" class="block px-3 py-2 text-text-secondary">Business</a>
+                    <a href="account_dashboard.html" class="block px-3 py-2 btn-primary text-center mt-4">Sign In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-50 to-secondary-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl lg:text-6xl font-bold text-primary mb-6">
+                    Urban Mobility 
+                    <span class="text-gradient font-accent">Intelligence</span>
+                </h1>
+                <p class="text-lg text-text-secondary max-w-3xl mx-auto mb-8">
+                    Real-time data insights that power smarter transportation decisions across your city. 
+                    Discover patterns, predict trends, and contribute to sustainable urban mobility.
+                </p>
+                
+                <!-- Live Stats Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                    <div class="bg-surface rounded-lg p-4 shadow-medium">
+                        <div class="text-2xl font-bold text-primary">2,847</div>
+                        <div class="text-sm text-text-secondary">Active Rides</div>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 shadow-medium">
+                        <div class="text-2xl font-bold text-secondary">47</div>
+                        <div class="text-sm text-text-secondary">Cities Covered</div>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 shadow-medium">
+                        <div class="text-2xl font-bold text-accent-700">12.4k</div>
+                        <div class="text-sm text-text-secondary">CO₂ Saved (kg)</div>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 shadow-medium">
+                        <div class="text-2xl font-bold text-success">98.7%</div>
+                        <div class="text-sm text-text-secondary">On-Time Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboard -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Dashboard Controls -->
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-12 space-y-4 lg:space-y-0">
+                <div>
+                    <h2 class="text-3xl font-bold text-primary mb-2">Real-Time City Dashboard</h2>
+                    <p class="text-text-secondary">Live transportation patterns and demand analytics</p>
+                </div>
+                
+                <div class="flex flex-wrap gap-4">
+                    <select class="input-field w-auto min-w-32">
+                        <option>Last 24 Hours</option>
+                        <option>Last Week</option>
+                        <option>Last Month</option>
+                    </select>
+                    <select class="input-field w-auto min-w-32">
+                        <option>All Districts</option>
+                        <option>Downtown</option>
+                        <option>Business District</option>
+                        <option>Residential</option>
+                    </select>
+                    <button class="btn-secondary">
+                        <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                        </svg>
+                        Export Data
+                    </button>
+                </div>
+            </div>
+
+            <!-- Main Dashboard Grid -->
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Traffic Heat Map -->
+                <div class="lg:col-span-2 card-elevated">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-semibold text-primary">Traffic Heat Map</h3>
+                        <div class="flex items-center space-x-2 text-sm text-text-secondary">
+                            <div class="w-3 h-3 bg-success rounded-full"></div>
+                            <span>Low</span>
+                            <div class="w-3 h-3 bg-warning rounded-full"></div>
+                            <span>Medium</span>
+                            <div class="w-3 h-3 bg-error rounded-full"></div>
+                            <span>High</span>
+                        </div>
+                    </div>
+                    
+                    <div class="relative h-96 bg-primary-50 rounded-lg overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="City traffic heat map visualization" class="w-full h-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        
+                        <!-- Heat Map Overlays -->
+                        <div class="absolute inset-0">
+                            <!-- High Traffic Areas -->
+                            <div class="absolute top-1/4 left-1/3 w-16 h-16 bg-error/30 rounded-full animate-pulse"></div>
+                            <div class="absolute top-1/2 right-1/4 w-12 h-12 bg-warning/40 rounded-full animate-pulse"></div>
+                            <div class="absolute bottom-1/3 left-1/2 w-20 h-20 bg-error/25 rounded-full animate-pulse"></div>
+                            
+                            <!-- Medium Traffic Areas -->
+                            <div class="absolute top-1/3 right-1/3 w-10 h-10 bg-warning/35 rounded-full animate-pulse"></div>
+                            <div class="absolute bottom-1/4 left-1/4 w-14 h-14 bg-warning/30 rounded-full animate-pulse"></div>
+                            
+                            <!-- Low Traffic Areas -->
+                            <div class="absolute top-1/6 left-1/6 w-8 h-8 bg-success/40 rounded-full animate-pulse"></div>
+                            <div class="absolute bottom-1/6 right-1/6 w-6 h-6 bg-success/45 rounded-full animate-pulse"></div>
+                        </div>
+                        
+                        <!-- Live Update Indicator -->
+                        <div class="absolute top-4 right-4 bg-surface/90 backdrop-blur-sm rounded-lg p-2">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-success rounded-full animate-pulse"></div>
+                                <span class="text-xs font-medium text-primary">Live</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demand Analytics -->
+                <div class="card-elevated">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Ride Demand</h3>
+                    
+                    <!-- Hourly Demand Chart -->
+                    <div class="space-y-4 mb-6">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">6 AM</span>
+                            <div class="flex-1 mx-3 bg-border-light rounded-full h-2">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 25%"></div>
+                            </div>
+                            <span class="text-sm font-medium">142</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">9 AM</span>
+                            <div class="flex-1 mx-3 bg-border-light rounded-full h-2">
+                                <div class="bg-error h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                            <span class="text-sm font-medium">487</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">12 PM</span>
+                            <div class="flex-1 mx-3 bg-border-light rounded-full h-2">
+                                <div class="bg-warning h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <span class="text-sm font-medium">372</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">6 PM</span>
+                            <div class="flex-1 mx-3 bg-border-light rounded-full h-2">
+                                <div class="bg-error h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                            <span class="text-sm font-medium">543</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-text-secondary">11 PM</span>
+                            <div class="flex-1 mx-3 bg-border-light rounded-full h-2">
+                                <div class="bg-success h-2 rounded-full" style="width: 35%"></div>
+                            </div>
+                            <span class="text-sm font-medium">201</span>
+                        </div>
+                    </div>
+
+                    <!-- Peak Hours Info -->
+                    <div class="bg-primary-50 rounded-lg p-4">
+                        <h4 class="font-semibold text-primary mb-2">Peak Hours Today</h4>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Morning Rush</span>
+                                <span class="font-medium">8:00 - 9:30 AM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-text-secondary">Evening Rush</span>
+                                <span class="font-medium">5:30 - 7:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Metrics -->
+    <section class="py-20 bg-gradient-to-r from-success-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Environmental Impact Dashboard
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Track our collective contribution to sustainable urban mobility and carbon reduction goals
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Carbon Saved -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-success mb-2">2.4 tons</div>
+                    <div class="text-sm text-text-secondary">CO₂ Saved Today</div>
+                    <div class="text-xs text-success mt-1">↑ 12% vs yesterday</div>
+                </div>
+
+                <!-- Shared Rides -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-secondary mb-2">1,247</div>
+                    <div class="text-sm text-text-secondary">Shared Rides</div>
+                    <div class="text-xs text-secondary mt-1">↑ 8% vs last week</div>
+                </div>
+
+                <!-- Electric Vehicles -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-accent-700 mb-2">34%</div>
+                    <div class="text-sm text-text-secondary">Electric Fleet</div>
+                    <div class="text-xs text-accent-700 mt-1">↑ 5% this month</div>
+                </div>
+
+                <!-- Trees Equivalent -->
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-success mb-2">847</div>
+                    <div class="text-sm text-text-secondary">Trees Planted Equiv.</div>
+                    <div class="text-xs text-success mt-1">Monthly impact</div>
+                </div>
+            </div>
+
+            <!-- Monthly Comparison Chart -->
+            <div class="card-elevated">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-xl font-semibold text-primary">Carbon Reduction Trends</h3>
+                    <div class="flex space-x-4 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-success rounded-full"></div>
+                            <span class="text-text-secondary">2025</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-primary-300 rounded-full"></div>
+                            <span class="text-text-secondary">2024</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-12 gap-2 h-48">
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 60%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 45%"></div>
+                        <span class="text-xs text-text-secondary">Jan</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 75%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 55%"></div>
+                        <span class="text-xs text-text-secondary">Feb</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 85%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 65%"></div>
+                        <span class="text-xs text-text-secondary">Mar</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 70%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 60%"></div>
+                        <span class="text-xs text-text-secondary">Apr</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 90%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 70%"></div>
+                        <span class="text-xs text-text-secondary">May</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 95%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 75%"></div>
+                        <span class="text-xs text-text-secondary">Jun</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 88%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 72%"></div>
+                        <span class="text-xs text-text-secondary">Jul</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 92%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 78%"></div>
+                        <span class="text-xs text-text-secondary">Aug</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-success rounded-t" style="height: 100%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 80%"></div>
+                        <span class="text-xs text-text-secondary font-semibold">Sep</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-border-light rounded-t" style="height: 50%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 82%"></div>
+                        <span class="text-xs text-text-secondary">Oct</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-border-light rounded-t" style="height: 50%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 85%"></div>
+                        <span class="text-xs text-text-secondary">Nov</span>
+                    </div>
+                    <div class="flex flex-col justify-end items-center space-y-1">
+                        <div class="w-4 bg-border-light rounded-t" style="height: 50%"></div>
+                        <div class="w-4 bg-primary-300 rounded-t" style="height: 88%"></div>
+                        <span class="text-xs text-text-secondary">Dec</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event-Based Transportation -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Event Transportation Intelligence
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Proactive ride planning for concerts, sports events, and city happenings with transparent pricing
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Upcoming Events -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Upcoming Events</h3>
+                    
+                    <!-- Event Card 1 -->
+                    <div class="card-elevated">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.pixabay.com/photo/2016/11/23/15/48/audience-1853662_1280.jpg" alt="Concert event" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-semibold text-primary">Summer Music Festival</h4>
+                                    <span class="text-sm text-warning font-medium">High Demand</span>
+                                </div>
+                                <p class="text-sm text-text-secondary mb-3">Central Park • Sept 15, 7:00 PM</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-sm">
+                                        <span class="text-text-secondary">Estimated fare: </span>
+                                        <span class="font-semibold text-primary">$18-24</span>
+                                    </div>
+                                    <button class="btn-secondary text-sm px-4 py-2">Pre-book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Event Card 2 -->
+                    <div class="card-elevated">
+                        <div class="flex items-start space-x-4">
+                            <img src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Sports event" class="w-16 h-16 rounded-lg object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                            <div class="flex-1">
+                                <div class="flex items-center justify-between mb-2">
+                                    <h4 class="font-semibold text-primary">City Championship Game</h4>
+                                    <span class="text-sm text-success font-medium">Normal Pricing</span>
+                                </div>
+                                <p class="text-sm text-text-secondary mb-3">Sports Arena • Sept 18, 3:00 PM</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="text-sm">
+                                        <span class="text-text-secondary">Estimated fare: </span>
+                                        <span class="font-semibold text-primary">$12-16</span>
+                                    </div>
+                                    <button class="btn-secondary text-sm px-4 py-2">Pre-book</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Surge Pricing Transparency -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Pricing Transparency</h3>
+                    
+                    <div class="card-elevated">
+                        <h4 class="font-semibold text-primary mb-4">Current Surge Multipliers</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Downtown District</span>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-success font-medium">1.0x</span>
+                                    <div class="w-2 h-2 bg-success rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Airport Area</span>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-warning font-medium">1.3x</span>
+                                    <div class="w-2 h-2 bg-warning rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-text-secondary">Event Venues</span>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-error font-medium">1.8x</span>
+                                    <div class="w-2 h-2 bg-error rounded-full"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-elevated">
+                        <h4 class="font-semibold text-primary mb-4">Smart Booking Tips</h4>
+                        <div class="space-y-3 text-sm">
+                            <div class="flex items-start space-x-3">
+                                <svg class="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-text-secondary">Book 30 minutes before events to avoid surge pricing</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <svg class="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <span class="text-text-secondary">Consider shared rides during peak event times</span>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <svg class="h-5 w-5 text-secondary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                </svg>
+                                <span class="text-text-secondary">Walk 2-3 blocks away from venues for better rates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhood Spotlights -->
+    <section class="py-20 bg-gradient-to-r from-primary-50 to-accent-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Neighborhood Economic Impact
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Discover how RideFlow supports local businesses and strengthens community connections
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Neighborhood 1 -->
+                <div class="card-elevated">
+                    <img src="https://images.pexels.com/photos/1105766/pexels-photo-1105766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Downtown district" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1449824913935-59a10b8d2000?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                    <h3 class="text-lg font-semibold text-primary mb-3">Downtown Arts District</h3>
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Monthly Rides</span>
+                            <span class="font-medium">12,847</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Local Partners</span>
+                            <span class="font-medium">34 businesses</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Economic Impact</span>
+                            <span class="font-medium text-success">+$2.4M</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 text-xs text-accent-700">
+                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Featured: Gallery District Partnership</span>
+                    </div>
+                </div>
+
+                <!-- Neighborhood 2 -->
+                <div class="card-elevated">
+                    <img src="https://images.pixabay.com/photo/2016/11/29/03/53/architecture-1867187_1280.jpg" alt="Business district" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                    <h3 class="text-lg font-semibold text-primary mb-3">Financial District</h3>
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Monthly Rides</span>
+                            <span class="font-medium">18,293</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Corporate Clients</span>
+                            <span class="font-medium">127 companies</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Economic Impact</span>
+                            <span class="font-medium text-success">+$3.8M</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 text-xs text-accent-700">
+                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Featured: Business Lunch Program</span>
+                    </div>
+                </div>
+
+                <!-- Neighborhood 3 -->
+                <div class="card-elevated">
+                    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Residential area" class="w-full h-48 object-cover rounded-lg mb-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                    <h3 class="text-lg font-semibold text-primary mb-3">Green Valley Residential</h3>
+                    <div class="space-y-2 text-sm mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Monthly Rides</span>
+                            <span class="font-medium">8,456</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Family Services</span>
+                            <span class="font-medium">67% of rides</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-text-secondary">Safety Rating</span>
+                            <span class="font-medium text-success">99.2%</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 text-xs text-accent-700">
+                        <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span>Featured: School Partnership Program</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Predictive Analytics -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Predictive Transportation Analytics
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Advanced forecasting helps optimize routes, predict demand, and improve service reliability
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Weather Impact Analysis -->
+                <div class="card-elevated">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Weather Impact Forecast</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-primary-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-8 w-8 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <div class="font-semibold text-primary">Today: Sunny, 72°F</div>
+                                    <div class="text-sm text-text-secondary">Expected demand: +15%</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-text-secondary">Peak hours</div>
+                                <div class="font-semibold text-primary">11 AM - 2 PM</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 bg-secondary-50 rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <svg class="h-8 w-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M5.05 3.636a1 1 0 010 1.414 7 7 0 000 9.9 1 1 0 11-1.414 1.414 9 9 0 010-12.728 1 1 0 011.414 0zm9.9 0a1 1 0 011.414 0 9 9 0 010 12.728 1 1 0 11-1.414-1.414 7 7 0 000-9.9 1 1 0 010-1.414zM7.879 6.464a1 1 0 010 1.414 3 3 0 000 4.243 1 1 0 11-1.415 1.415 5 5 0 010-7.071 1 1 0 011.415 0zm4.242 0a1 1 0 011.415 0 5 5 0 010 7.07 1 1 0 01-1.415-1.414 3 3 0 000-4.242 1 1 0 010-1.414zM10 8a2 2 0 100 4 2 2 0 000-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <div class="font-semibold text-primary">Tomorrow: Light Rain</div>
+                                    <div class="text-sm text-text-secondary">Expected demand: +35%</div>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm text-text-secondary">Extended peaks</div>
+                                <div class="font-semibold text-primary">7 AM - 10 AM</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-accent-50 rounded-lg">
+                        <h4 class="font-semibold text-primary mb-2">Smart Recommendations</h4>
+                        <ul class="text-sm text-text-secondary space-y-1">
+                            <li>• Pre-position 12% more vehicles in downtown area</li>
+                            <li>• Increase driver incentives during rain periods</li>
+                            <li>• Send weather alerts to frequent riders</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Seasonal Trends -->
+                <div class="card-elevated">
+                    <h3 class="text-xl font-semibold text-primary mb-6">Seasonal Transportation Patterns</h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Fall Trends -->
+                        <div class="border-l-4 border-accent pl-4">
+                            <h4 class="font-semibold text-primary mb-2">Fall Season Insights</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-text-secondary">School Runs</span>
+                                    <div class="font-semibold text-accent-700">+28%</div>
+                                </div>
+                                <div>
+                                    <span class="text-text-secondary">Evening Events</span>
+                                    <div class="font-semibold text-accent-700">+15%</div>
+                                </div>
+                                <div>
+                                    <span class="text-text-secondary">Airport Trips</span>
+                                    <div class="font-semibold text-accent-700">+22%</div>
+                                </div>
+                                <div>
+                                    <span class="text-text-secondary">Weekend Activity</span>
+                                    <div class="font-semibold text-accent-700">+18%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Upcoming Predictions -->
+                        <div class="border-l-4 border-secondary pl-4">
+                            <h4 class="font-semibold text-primary mb-2">Winter Forecast</h4>
+                            <div class="text-sm text-text-secondary space-y-2">
+                                <p>• Holiday shopping trips expected to increase by 45%</p>
+                                <p>• Airport demand peaks during Dec 20-Jan 5</p>
+                                <p>• Weather-related surge events: 12-15 days projected</p>
+                                <p>• Indoor venue rides increase by 30%</p>
+                            </div>
+                        </div>
+
+                        <!-- Action Items -->
+                        <div class="bg-success-50 rounded-lg p-4">
+                            <h4 class="font-semibold text-success-700 mb-2">Optimization Actions</h4>
+                            <div class="text-sm text-success-700 space-y-1">
+                                <div class="flex items-center space-x-2">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Driver recruitment campaign launched</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Fleet expansion in suburban areas</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>Holiday pricing strategy implemented</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                Partner with Urban Intelligence
+            </h2>
+            <p class="text-lg mb-8 opacity-90">
+                Access comprehensive city mobility data and insights to make informed transportation decisions for your business or organization.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="business_portal.html" class="btn-accent px-8 py-4 text-lg">
+                    Explore Business Solutions
+                </a>
+                <a href="ride_services.html" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/30 transition-smooth">
+                    Book Smart Ride
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="h-8 w-8 text-accent mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <span class="text-xl font-bold">RideFlow</span>
+                    </div>
+                    <p class="text-primary-200">
+                        Elevating urban transportation through smart mobility and community connection.
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="ride_services.html" class="hover:text-white transition-smooth">Ride Services</a></li>
+                        <li><a href="driver_hub.html" class="hover:text-white transition-smooth">Driver Hub</a></li>
+                        <li><a href="business_portal.html" class="hover:text-white transition-smooth">Business Portal</a></li>
+                        <li><a href="city_insights.html" class="hover:text-white transition-smooth">City Insights</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">About Us</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Careers</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Press</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Safety</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Contact</a></li>
+                        <li><a href="account_dashboard.html" class="hover:text-white transition-smooth">Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 RideFlow. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Privacy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Terms</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

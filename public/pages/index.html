@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RideFlow - Elevate Your Journey</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Premium ride-hailing platform that transcends typical transportation apps. Smart mobility, community impact, and sustainable urban living." />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frideflow9628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-light sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">E¬RIDEZ</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-primary font-semibold">Home</a>
+                    <a href="ride_services.html" class="text-text-secondary hover:text-primary transition-smooth">Services</a>
+                    <a href="driver_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Drive</a>
+                    <a href="city_insights.html" class="text-text-secondary hover:text-primary transition-smooth">City Insights</a>
+                    <a href="business_portal.html" class="text-text-secondary hover:text-primary transition-smooth">Business</a>
+                    <a href="account_dashboard.html" class="btn-primary">Sign In</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border-light">
+                    <a href="homepage.html" class="block px-3 py-2 text-primary font-semibold">Home</a>
+                    <a href="ride_services.html" class="block px-3 py-2 text-text-secondary">Services</a>
+                    <a href="driver_hub.html" class="block px-3 py-2 text-text-secondary">Drive</a>
+                    <a href="city_insights.html" class="block px-3 py-2 text-text-secondary">City Insights</a>
+                    <a href="business_portal.html" class="block px-3 py-2 text-text-secondary">Business</a>
+                    <a href="account_dashboard.html" class="block px-3 py-2 btn-primary text-center mt-4">Sign In</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen bg-gradient-to-br from-primary-50 to-secondary-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Interactive Map -->
+                <div class="relative">
+                    <div class="bg-surface rounded-2xl shadow-heavy p-6 h-96 lg:h-128 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="City map with RideFlow vehicles" class="w-full h-full object-cover rounded-lg" loading="lazy" onerror="this.src='https://images.pexels.com/photos/1519088/pexels-photo-1519088.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        
+                        <!-- Animated Vehicle Markers -->
+                        <div class="absolute top-1/4 left-1/3 w-4 h-4 bg-secondary rounded-full animate-pulse shadow-medium"></div>
+                        <div class="absolute top-1/2 right-1/4 w-4 h-4 bg-accent rounded-full animate-pulse shadow-medium"></div>
+                        <div class="absolute bottom-1/3 left-1/2 w-4 h-4 bg-primary rounded-full animate-pulse shadow-medium"></div>
+                        
+                        <!-- Live Stats Overlay -->
+                        <div class="absolute top-4 left-4 bg-surface/90 backdrop-blur-sm rounded-lg p-3">
+                            <div class="text-sm font-semibold text-primary">Live Now</div>
+                            <div class="text-xs text-text-secondary">47 vehicles nearby</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Value Proposition & Booking -->
+                <div class="space-y-8">
+                    <div class="space-y-6">
+                        <h1 class="text-4xl lg:text-6xl font-bold text-primary leading-tight">
+                            Elevate Your 
+                            <span class="text-gradient font-accent">Journey</span>
+                        </h1>
+                        <p class="text-lg text-text-secondary leading-relaxed">
+                            Premium ride-hailing that transcends transportation. Smart mobility for conscious living, 
+                            where every ride contributes to smarter cities and connected communities.
+                        </p>
+                    </div>
+
+                    <!-- Booking Widget -->
+                    <div class="bg-surface rounded-2xl shadow-medium p-6 space-y-4">
+                        <h3 class="text-lg font-semibold text-primary">Book Your Ride</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 gap-4">
+                                <div class="relative">
+                                    <input type="text" placeholder="Pickup location" class="input-field pl-10" value="Current Location" />
+                                    <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                
+                                <div class="relative">
+                                    <input type="text" placeholder="Where to?" class="input-field pl-10" />
+                                    <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <!-- Service Tier Selection -->
+                            <div class="grid grid-cols-2 gap-3">
+                                <button class="p-3 border-2 border-primary bg-primary-50 rounded-lg text-center transition-smooth">
+                                    <div class="font-semibold text-primary">Economy</div>
+                                    <div class="text-sm text-text-secondary">2 min • $12</div>
+                                </button>
+                                <button class="p-3 border border-border rounded-lg text-center hover:border-primary transition-smooth">
+                                    <div class="font-semibold text-primary">Premium</div>
+                                    <div class="text-sm text-text-secondary">3 min • $18</div>
+                                </button>
+                            </div>
+
+                            <button class="btn-primary w-full py-4 text-lg">
+                                Request Ride
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition Grid -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Why Choose E¬RIDEZ?
+                </h2>
+                <p class="text-lg text-text-secondary max-w-2xl mx-auto">
+                    Experience transportation that goes beyond getting from point A to B
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Smart Mobility -->
+                <div class="card-elevated text-center group hover:shadow-heavy transition-all duration-400">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-smooth">
+                        <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Smart Mobility</h3>
+                    <p class="text-text-secondary">
+                        AI-powered routing and real-time optimization ensure the fastest, most efficient rides every time.
+                    </p>
+                </div>
+
+                <!-- Community Impact -->
+                <div class="card-elevated text-center group hover:shadow-heavy transition-all duration-400">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-secondary-200 transition-smooth">
+                        <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Community Impact</h3>
+                    <p class="text-text-secondary">
+                        Every ride contributes to local economies and sustainable urban development initiatives.
+                    </p>
+                </div>
+
+                <!-- Premium Experience -->
+                <div class="card-elevated text-center group hover:shadow-heavy transition-all duration-400">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent-200 transition-smooth">
+                        <svg class="h-8 w-8 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-primary mb-4">Premium Experience</h3>
+                    <p class="text-text-secondary">
+                        Luxury vehicles, professional drivers, and personalized service that exceeds expectations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lifestyle Integration -->
+    <section class="py-20 bg-gradient-to-r from-primary-50 to-secondary-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-6">
+                            Seamlessly Integrated Into Your Life
+                        </h2>
+                        <p class="text-lg text-text-secondary mb-8">
+                            E¬RIDEZ connects with your daily routines, making transportation effortless and intelligent.
+                        </p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary mb-2">Calendar Integration</h3>
+                                <p class="text-text-secondary">Automatically book rides based on your calendar events and preferred arrival times.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary mb-2">Carbon Tracking</h3>
+                                <p class="text-text-secondary">Monitor your environmental impact and earn rewards for choosing eco-friendly rides.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-primary mb-2">Event Transportation</h3>
+                                <p class="text-text-secondary">Smart suggestions for concerts, sports events, and local happenings with group booking options.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <img src="https://images.pixabay.com/photo/2017/08/06/12/06/people-2591874_1280.jpg" alt="People using RideFlow app" class="w-full h-96 object-cover rounded-2xl shadow-heavy" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live City Insights Ticker -->
+    <section class="bg-primary text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center space-x-8 text-sm font-medium">
+                <div class="flex items-center space-x-2">
+                    <svg class="h-4 w-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Carbon saved today: 2.4 tons</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="h-4 w-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span>Community rides completed: 1,247</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <svg class="h-4 w-4 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Active in 47 cities</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="py-20 bg-surface">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-4">
+                    Trusted by Urban Professionals
+                </h2>
+                <p class="text-lg text-text-secondary">
+                    See what our community says about their E¬RIDEZ experience
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card-elevated">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Sarah Chen" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <div class="font-semibold text-primary">Sarah Chen</div>
+                            <div class="text-sm text-text-secondary">Marketing Director</div>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        "E¬RIDEZ has transformed my daily commute. The premium service and eco-friendly options align perfectly with my values."
+                    </p>
+                    <div class="flex text-accent">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="card-elevated">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Marcus Johnson" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        <div>
+                            <div class="font-semibold text-primary">Marcus Johnson</div>
+                            <div class="text-sm text-text-secondary">Business Owner</div>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        "The business portal has streamlined our team transportation. Excellent service and transparent pricing."
+                    </p>
+                    <div class="flex text-accent">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="card-elevated">
+                    <div class="flex items-center mb-4">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Elena Rodriguez" class="w-12 h-12 rounded-full object-cover mr-4" loading="lazy" onerror="this.src='https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        <div>
+                            <div class="font-semibold text-primary">Elena Rodriguez</div>
+                            <div class="text-sm text-text-secondary">Environmental Advocate</div>
+                        </div>
+                    </div>
+                    <p class="text-text-secondary mb-4">
+                        "Love the carbon tracking feature! It's amazing to see how my transportation choices make a real environmental impact."
+                    </p>
+                    <div class="flex text-accent">
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+                Ready to Elevate Your Journey?
+            </h2>
+            <p class="text-lg mb-8 opacity-90">
+                Join thousands of urban professionals who've made RideFlow their preferred transportation choice.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="ride_services.html" class="btn-accent px-8 py-4 text-lg">
+                    Book Your First Ride
+                </a>
+                <a href="driver_hub.html" class="bg-white/20 text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/30 transition-smooth">
+                    Become a Driver
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="h-8 w-8 text-accent mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <span class="text-xl font-bold">E¬RIDEZ</span>
+                    </div>
+                    <p class="text-primary-200">
+                        Elevating urban transportation through smart mobility and community connection.
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="ride_services.html" class="hover:text-white transition-smooth">Ride Services</a></li>
+                        <li><a href="driver_hub.html" class="hover:text-white transition-smooth">Driver Hub</a></li>
+                        <li><a href="business_portal.html" class="hover:text-white transition-smooth">Business Portal</a></li>
+                        <li><a href="city_insights.html" class="hover:text-white transition-smooth">City Insights</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">About Us</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Careers</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Press</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Safety</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Contact</a></li>
+                        <li><a href="account_dashboard.html" class="hover:text-white transition-smooth">Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 E¬RIDEZ. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Privacy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Terms</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

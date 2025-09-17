@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Dashboard - RideFlow</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <meta name="description" content="Manage your RideFlow account, view ride history, track carbon footprint, and customize your premium transportation experience." />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Frideflow9628back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background text-text-primary">
+    <!-- Header Navigation -->
+    <header class="bg-surface shadow-light sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <svg class="h-8 w-8 text-primary mr-3" viewBox="0 0 32 32" fill="currentColor">
+                        <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                        <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                    </svg>
+                    <span class="text-xl font-bold text-primary">RideFlow</span>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="homepage.html" class="text-text-secondary hover:text-primary transition-smooth">Home</a>
+                    <a href="ride_services.html" class="text-text-secondary hover:text-primary transition-smooth">Services</a>
+                    <a href="driver_hub.html" class="text-text-secondary hover:text-primary transition-smooth">Drive</a>
+                    <a href="city_insights.html" class="text-text-secondary hover:text-primary transition-smooth">City Insights</a>
+                    <a href="business_portal.html" class="text-text-secondary hover:text-primary transition-smooth">Business</a>
+                    <a href="account_dashboard.html" class="text-primary font-semibold">Account</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-surface border-t border-border-light">
+                    <a href="homepage.html" class="block px-3 py-2 text-text-secondary">Home</a>
+                    <a href="ride_services.html" class="block px-3 py-2 text-text-secondary">Services</a>
+                    <a href="driver_hub.html" class="block px-3 py-2 text-text-secondary">Drive</a>
+                    <a href="city_insights.html" class="block px-3 py-2 text-text-secondary">City Insights</a>
+                    <a href="business_portal.html" class="block px-3 py-2 text-text-secondary">Business</a>
+                    <a href="account_dashboard.html" class="block px-3 py-2 text-primary font-semibold">Account</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Dashboard Header -->
+    <section class="bg-gradient-to-r from-primary-50 to-secondary-50 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                <div class="flex items-center space-x-4">
+                    <img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Profile" class="w-16 h-16 rounded-full object-cover border-4 border-white shadow-medium" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                    <div>
+                        <h1 class="text-2xl lg:text-3xl font-bold text-primary">Welcome back, Sarah</h1>
+                        <p class="text-text-secondary">Premium Member since March 2024</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <div class="bg-surface rounded-lg p-4 shadow-light text-center">
+                        <div class="text-2xl font-bold text-primary">4.9</div>
+                        <div class="text-sm text-text-secondary">Rating</div>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 shadow-light text-center">
+                        <div class="text-2xl font-bold text-secondary">247</div>
+                        <div class="text-sm text-text-secondary">Total Rides</div>
+                    </div>
+                    <div class="bg-surface rounded-lg p-4 shadow-light text-center">
+                        <div class="text-2xl font-bold text-accent">1,240</div>
+                        <div class="text-sm text-text-secondary">Points</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Navigation Tabs -->
+    <section class="bg-surface border-b border-border-light sticky top-16 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex space-x-8 overflow-x-auto">
+                <button class="tab-button active" data-tab="history">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Ride History
+                </button>
+                <button class="tab-button" data-tab="preferences">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    Preferences
+                </button>
+                <button class="tab-button" data-tab="rewards">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                    </svg>
+                    Rewards
+                </button>
+                <button class="tab-button" data-tab="payments">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+                    </svg>
+                    Payments
+                </button>
+                <button class="tab-button" data-tab="carbon">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                    </svg>
+                    Carbon Impact
+                </button>
+                <button class="tab-button" data-tab="schedule">
+                    <svg class="h-5 w-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Schedule
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tab Content Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Ride History Tab -->
+        <div id="history-tab" class="tab-content active">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-4">Ride History</h2>
+                <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                    <div class="relative flex-1">
+                        <input type="text" placeholder="Search rides..." class="input-field pl-10" />
+                        <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </div>
+                    <select class="input-field">
+                        <option>All Rides</option>
+                        <option>This Month</option>
+                        <option>Last 3 Months</option>
+                        <option>This Year</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Recent Rides Timeline -->
+            <div class="space-y-4">
+                <!-- Ride Card 1 -->
+                <div class="card-elevated hover:shadow-heavy transition-all duration-300">
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+                        <div class="flex items-start space-x-4 flex-1">
+                            <div class="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <span class="font-semibold text-primary">Premium Ride</span>
+                                    <span class="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">Completed</span>
+                                </div>
+                                <div class="text-sm text-text-secondary mb-2">
+                                    <div>From: 123 Business District, Downtown</div>
+                                    <div>To: 456 Residential Ave, Uptown</div>
+                                </div>
+                                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                    <span>Sept 10, 2025 • 2:30 PM</span>
+                                    <span>12.5 miles • 28 min</span>
+                                    <span class="text-success-600">-2.1 kg CO₂</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="text-right">
+                                <div class="font-semibold text-primary">$24.50</div>
+                                <div class="flex items-center text-sm text-accent">
+                                    <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                    4.9
+                                </div>
+                            </div>
+                            <img src="https://images.pixabay.com/photo/2016/11/21/12/42/beard-1845166_1280.jpg" alt="Driver Marcus" class="w-10 h-10 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3'; this.onerror=null;" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ride Card 2 -->
+                <div class="card-elevated hover:shadow-heavy transition-all duration-300">
+                    <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+                        <div class="flex items-start space-x-4 flex-1">
+                            <div class="w-12 h-12 bg-secondary-100 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="h-6 w-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex items-center space-x-2 mb-2">
+                                    <span class="font-semibold text-primary">Eco-Friendly</span>
+                                    <span class="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">Completed</span>
+                                    <span class="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded-full">+50 Points</span>
+                                </div>
+                                <div class="text-sm text-text-secondary mb-2">
+                                    <div>From: Central Station</div>
+                                    <div>To: Green Valley Mall</div>
+                                </div>
+                                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                                    <span>Sept 8, 2025 • 6:45 PM</span>
+                                    <span>8.2 miles • 19 min</span>
+                                    <span class="text-success-600">-3.2 kg CO₂</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="text-right">
+                                <div class="font-semibold text-primary">$16.75</div>
+                                <div class="flex items-center text-sm text-accent">
+                                    <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                                    </svg>
+                                    5.0
+                                </div>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3" alt="Driver Elena" class="w-10 h-10 rounded-full object-cover" loading="lazy" onerror="this.src='https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'; this.onerror=null;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preferences Tab -->
+        <div id="preferences-tab" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-4">Ride Preferences</h2>
+                <p class="text-text-secondary">Customize your RideFlow experience to match your preferences</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Service Preferences -->
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Default Service Tier</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center space-x-3">
+                            <input type="radio" name="service-tier" value="economy" class="text-primary focus:ring-primary-300" />
+                            <span>Economy - Budget-friendly rides</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="radio" name="service-tier" value="premium" checked class="text-primary focus:ring-primary-300" />
+                            <span>Premium - Enhanced comfort and service</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="radio" name="service-tier" value="executive" class="text-primary focus:ring-primary-300" />
+                            <span>Executive - Luxury vehicles and amenities</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="radio" name="service-tier" value="eco" class="text-primary focus:ring-primary-300" />
+                            <span>Eco-Friendly - Hybrid and electric vehicles</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Comfort Preferences -->
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Comfort Settings</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Temperature Preference</label>
+                            <select class="input-field">
+                                <option>Cool (68-70°F)</option>
+                                <option selected>Comfortable (70-72°F)</option>
+                                <option>Warm (72-74°F)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Music Preference</label>
+                            <select class="input-field">
+                                <option>No Music</option>
+                                <option selected>Soft Background Music</option>
+                                <option>My Spotify Playlist</option>
+                                <option>Driver's Choice</option>
+                            </select>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="quiet-ride" checked class="text-primary focus:ring-primary-300" />
+                            <label for="quiet-ride" class="text-sm">Prefer quiet rides (minimal conversation)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessibility Settings -->
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Accessibility Needs</h3>
+                    <div class="space-y-3">
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" class="text-primary focus:ring-primary-300" />
+                            <span>Wheelchair accessible vehicle required</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" class="text-primary focus:ring-primary-300" />
+                            <span>Service animal accommodation</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" class="text-primary focus:ring-primary-300" />
+                            <span>Visual impairment assistance</span>
+                        </label>
+                        <label class="flex items-center space-x-3">
+                            <input type="checkbox" class="text-primary focus:ring-primary-300" />
+                            <span>Hearing impairment - text communication preferred</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Safety Preferences -->
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Safety & Communication</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="share-trip" checked class="text-primary focus:ring-primary-300" />
+                            <label for="share-trip" class="text-sm">Auto-share trip details with emergency contacts</label>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="driver-photo" checked class="text-primary focus:ring-primary-300" />
+                            <label for="driver-photo" class="text-sm">Require driver photo verification</label>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-text-primary mb-2">Emergency Contact</label>
+                            <input type="text" placeholder="Contact name" class="input-field mb-2" value="John Chen" />
+                            <input type="tel" placeholder="Phone number" class="input-field" value="+1 (555) 123-4567" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex justify-end">
+                <button class="btn-primary">Save Preferences</button>
+            </div>
+        </div>
+
+        <!-- Rewards Tab -->
+        <div id="rewards-tab" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-4">Loyalty Rewards</h2>
+                <p class="text-text-secondary">Earn points for every ride and redeem for exclusive benefits</p>
+            </div>
+
+            <!-- Points Overview -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-2">1,240</div>
+                    <div class="text-text-secondary">Available Points</div>
+                </div>
+
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-2">Gold</div>
+                    <div class="text-text-secondary">Current Tier</div>
+                </div>
+
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-2">$124</div>
+                    <div class="text-text-secondary">Lifetime Savings</div>
+                </div>
+            </div>
+
+            <!-- Tier Progress -->
+            <div class="card-elevated mb-8">
+                <h3 class="text-lg font-semibold text-primary mb-4">Progress to Platinum</h3>
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-text-secondary">Gold Tier</span>
+                    <span class="text-sm text-text-secondary">Platinum Tier</span>
+                </div>
+                <div class="w-full bg-border-light rounded-full h-3 mb-4">
+                    <div class="bg-gradient-to-r from-accent to-accent-600 h-3 rounded-full" style="width: 75%"></div>
+                </div>
+                <p class="text-sm text-text-secondary">Complete 15 more rides or earn 500 more points to reach Platinum tier</p>
+            </div>
+
+            <!-- Redemption Options -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Ride Credits</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 border border-border rounded-lg">
+                            <div>
+                                <div class="font-medium">$5 Ride Credit</div>
+                                <div class="text-sm text-text-secondary">Valid for 30 days</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-accent">250 pts</div>
+                                <button class="text-sm text-primary hover:underline">Redeem</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-3 border border-border rounded-lg">
+                            <div>
+                                <div class="font-medium">$10 Ride Credit</div>
+                                <div class="text-sm text-text-secondary">Valid for 30 days</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-accent">450 pts</div>
+                                <button class="text-sm text-primary hover:underline">Redeem</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-3 border border-border rounded-lg">
+                            <div>
+                                <div class="font-medium">$25 Ride Credit</div>
+                                <div class="text-sm text-text-secondary">Valid for 60 days</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-accent">1000 pts</div>
+                                <button class="text-sm text-primary hover:underline">Redeem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Partner Rewards</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 border border-border rounded-lg">
+                            <div>
+                                <div class="font-medium">Coffee Shop Discount</div>
+                                <div class="text-sm text-text-secondary">20% off at local cafes</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-accent">300 pts</div>
+                                <button class="text-sm text-primary hover:underline">Redeem</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-3 border border-border rounded-lg">
+                            <div>
+                                <div class="font-medium">Restaurant Voucher</div>
+                                <div class="text-sm text-text-secondary">$15 dining credit</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-accent">600 pts</div>
+                                <button class="text-sm text-primary hover:underline">Redeem</button>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center p-3 border border-border rounded-lg">
+                            <div>
+                                <div class="font-medium">Gym Membership</div>
+                                <div class="text-sm text-text-secondary">1 month free access</div>
+                            </div>
+                            <div class="text-right">
+                                <div class="font-semibold text-accent">1500 pts</div>
+                                <button class="text-sm text-text-secondary">Not enough points</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payments Tab -->
+        <div id="payments-tab" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-4">Payment Methods</h2>
+                <p class="text-text-secondary">Manage your payment options and expense tracking</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Payment Methods -->
+                <div class="card-elevated">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-primary">Saved Payment Methods</h3>
+                        <button class="btn-secondary text-sm">Add New</button>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-6 bg-primary rounded flex items-center justify-center">
+                                    <span class="text-white text-xs font-bold">VISA</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">•••• •••• •••• 4532</div>
+                                    <div class="text-sm text-text-secondary">Expires 12/26</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="px-2 py-1 bg-primary-100 text-primary text-xs rounded-full">Default</span>
+                                <button class="text-text-secondary hover:text-primary">
+                                    <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-6 bg-secondary rounded flex items-center justify-center">
+                                    <span class="text-white text-xs font-bold">MC</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">•••• •••• •••• 8901</div>
+                                    <div class="text-sm text-text-secondary">Expires 08/27</div>
+                                </div>
+                            </div>
+                            <button class="text-text-secondary hover:text-primary">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="flex items-center justify-between p-4 border border-border rounded-lg">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-10 h-6 bg-accent rounded flex items-center justify-center">
+                                    <span class="text-primary text-xs font-bold">PP</span>
+                                </div>
+                                <div>
+                                    <div class="font-medium">PayPal</div>
+                                    <div class="text-sm text-text-secondary">sarah.chen@email.com</div>
+                                </div>
+                            </div>
+                            <button class="text-text-secondary hover:text-primary">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expense Tracking -->
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Expense Management</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="auto-receipt" checked class="text-primary focus:ring-primary-300" />
+                            <label for="auto-receipt" class="text-sm">Auto-generate receipts for business rides</label>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="expense-integration" class="text-primary focus:ring-primary-300" />
+                            <label for="expense-integration" class="text-sm">Integrate with Expensify</label>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <input type="checkbox" id="monthly-summary" checked class="text-primary focus:ring-primary-300" />
+                            <label for="monthly-summary" class="text-sm">Monthly expense summary emails</label>
+                        </div>
+                        
+                        <div class="pt-4 border-t border-border-light">
+                            <h4 class="font-medium text-primary mb-3">This Month's Spending</h4>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Personal</span>
+                                    <span class="font-medium">$156.75</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-sm text-text-secondary">Business</span>
+                                    <span class="font-medium">$89.50</span>
+                                </div>
+                                <div class="flex justify-between font-semibold pt-2 border-t border-border-light">
+                                    <span>Total</span>
+                                    <span>$246.25</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carbon Impact Tab -->
+        <div id="carbon-tab" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-4">Carbon Impact Tracker</h2>
+                <p class="text-text-secondary">Monitor your environmental contribution and sustainable transportation choices</p>
+            </div>
+
+            <!-- Impact Overview -->
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-success-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-2">-127.5 kg</div>
+                    <div class="text-text-secondary">CO₂ Saved This Year</div>
+                </div>
+
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-secondary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-2">73%</div>
+                    <div class="text-text-secondary">Eco-Friendly Rides</div>
+                </div>
+
+                <div class="card-elevated text-center">
+                    <div class="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="h-8 w-8 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-primary mb-2">Top 15%</div>
+                    <div class="text-text-secondary">Community Ranking</div>
+                </div>
+            </div>
+
+            <!-- Carbon Savings Chart -->
+            <div class="card-elevated mb-8">
+                <h3 class="text-lg font-semibold text-primary mb-4">Monthly Carbon Savings</h3>
+                <div class="h-64 bg-gradient-to-t from-success-50 to-transparent rounded-lg flex items-end justify-center p-4">
+                    <svg class="w-full h-full" viewBox="0 0 400 200">
+                        <defs>
+                            <linearGradient id="carbonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4caf50;stop-opacity:0.8"/>
+                                <stop offset="100%" style="stop-color:#4caf50;stop-opacity:0.2"/>
+                            </linearGradient>
+                        </defs>
+                        <polyline fill="none" stroke="#4caf50" stroke-width="3" points="20,180 60,160 100,140 140,120 180,100 220,90 260,85 300,80 340,75 380,70"/>
+                        <polygon fill="url(#carbonGradient)" points="20,180 60,160 100,140 140,120 180,100 220,90 260,85 300,80 340,75 380,70 380,180"/>
+                        <text x="200" y="195" text-anchor="middle" class="text-sm fill-current text-text-secondary">Carbon Savings Trend</text>
+                    </svg>
+                </div>
+                <div class="flex justify-between text-sm text-text-secondary mt-4">
+                    <span>Jan</span>
+                    <span>Mar</span>
+                    <span>May</span>
+                    <span>Jul</span>
+                    <span>Sep</span>
+                    <span>Nov</span>
+                </div>
+            </div>
+
+            <!-- Impact Comparison -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Impact Comparison</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">vs. Personal Car</span>
+                            <span class="font-semibold text-success-600">-89.2 kg CO₂</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">vs. Traditional Taxi</span>
+                            <span class="font-semibold text-success-600">-38.3 kg CO₂</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Equivalent Trees Planted</span>
+                            <span class="font-semibold text-success-600">5.8 trees</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-elevated">
+                    <h3 class="text-lg font-semibold text-primary mb-4">Community Impact</h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Community CO₂ Saved</span>
+                            <span class="font-semibold text-primary">2,847 kg</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Your Contribution</span>
+                            <span class="font-semibold text-secondary">4.5%</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-text-secondary">Local Air Quality Improvement</span>
+                            <span class="font-semibold text-success-600">+12%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Schedule Tab -->
+        <div id="schedule-tab" class="tab-content">
+            <div class="mb-8">
+                <h2 class="text-2xl font-bold text-primary mb-4">Ride Scheduling</h2>
+                <p class="text-text-secondary">Manage your upcoming rides and recurring schedules</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Upcoming Rides -->
+                <div class="card-elevated">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-primary">Upcoming Rides</h3>
+                        <button class="btn-secondary text-sm">Schedule New</button>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 border border-border rounded-lg">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-medium text-primary">Airport Transfer</div>
+                                    <div class="text-sm text-text-secondary">Tomorrow, Sept 12 • 6:00 AM</div>
+                                </div>
+                                <span class="px-2 py-1 bg-accent-100 text-accent-700 text-xs rounded-full">Premium</span>
+                            </div>
+                            <div class="text-sm text-text-secondary mb-3">
+                                <div>From: Home (123 Residential Ave)</div>
+                                <div>To: International Airport Terminal 2</div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Estimated: $45.00</span>
+                                <div class="flex space-x-2">
+                                    <button class="text-primary text-sm hover:underline">Edit</button>
+                                    <button class="text-error text-sm hover:underline">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 border border-border rounded-lg">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-medium text-primary">Business Meeting</div>
+                                    <div class="text-sm text-text-secondary">Sept 15 • 2:30 PM</div>
+                                </div>
+                                <span class="px-2 py-1 bg-primary-100 text-primary text-xs rounded-full">Executive</span>
+                            </div>
+                            <div class="text-sm text-text-secondary mb-3">
+                                <div>From: Office (456 Business District)</div>
+                                <div>To: Client Office (789 Corporate Plaza)</div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Estimated: $28.50</span>
+                                <div class="flex space-x-2">
+                                    <button class="text-primary text-sm hover:underline">Edit</button>
+                                    <button class="text-error text-sm hover:underline">Cancel</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recurring Schedules -->
+                <div class="card-elevated">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-lg font-semibold text-primary">Recurring Schedules</h3>
+                        <button class="btn-secondary text-sm">Add Recurring</button>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="p-4 border border-border rounded-lg">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-medium text-primary">Morning Commute</div>
+                                    <div class="text-sm text-text-secondary">Mon-Fri • 8:00 AM</div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2 py-1 bg-success-100 text-success-700 text-xs rounded-full">Active</span>
+                                    <button class="text-text-secondary hover:text-primary">
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-sm text-text-secondary mb-3">
+                                <div>From: Home → Office</div>
+                                <div>Service: Premium • ~$18.50</div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Next: Tomorrow 8:00 AM</span>
+                                <button class="text-primary text-sm hover:underline">Modify</button>
+                            </div>
+                        </div>
+
+                        <div class="p-4 border border-border rounded-lg opacity-60">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <div class="font-medium text-primary">Evening Return</div>
+                                    <div class="text-sm text-text-secondary">Mon-Fri • 6:00 PM</div>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2 py-1 bg-border text-text-secondary text-xs rounded-full">Paused</span>
+                                    <button class="text-text-secondary hover:text-primary">
+                                        <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="text-sm text-text-secondary mb-3">
+                                <div>From: Office → Home</div>
+                                <div>Service: Economy • ~$15.00</div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-text-secondary">Paused until Oct 1</span>
+                                <button class="text-primary text-sm hover:underline">Resume</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calendar Integration -->
+            <div class="card-elevated mt-8">
+                <h3 class="text-lg font-semibold text-primary mb-4">Smart Scheduling</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-medium text-primary mb-3">Calendar Integration</h4>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" checked class="text-primary focus:ring-primary-300" />
+                                <span class="text-sm">Auto-book rides for calendar events</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" checked class="text-primary focus:ring-primary-300" />
+                                <span class="text-sm">Smart departure time suggestions</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="text-primary focus:ring-primary-300" />
+                                <span class="text-sm">Traffic-based timing adjustments</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-medium text-primary mb-3">Notification Preferences</h4>
+                        <div class="space-y-3">
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" checked class="text-primary focus:ring-primary-300" />
+                                <span class="text-sm">30 minutes before pickup</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" checked class="text-primary focus:ring-primary-300" />
+                                <span class="text-sm">Driver assignment notification</span>
+                            </label>
+                            <label class="flex items-center space-x-3">
+                                <input type="checkbox" class="text-primary focus:ring-primary-300" />
+                                <span class="text-sm">Weather-based service suggestions</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-primary-900 text-white py-16 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- Company Info -->
+                <div class="space-y-4">
+                    <div class="flex items-center">
+                        <svg class="h-8 w-8 text-accent mr-3" viewBox="0 0 32 32" fill="currentColor">
+                            <path d="M16 2L4 8v16l12 6 12-6V8L16 2zm0 4l8 4v12l-8 4-8-4V10l8-4z"/>
+                            <circle cx="16" cy="16" r="4" fill="currentColor"/>
+                        </svg>
+                        <span class="text-xl font-bold">RideFlow</span>
+                    </div>
+                    <p class="text-primary-200">
+                        Elevating urban transportation through smart mobility and community connection.
+                    </p>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h3 class="font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="ride_services.html" class="hover:text-white transition-smooth">Ride Services</a></li>
+                        <li><a href="driver_hub.html" class="hover:text-white transition-smooth">Driver Hub</a></li>
+                        <li><a href="business_portal.html" class="hover:text-white transition-smooth">Business Portal</a></li>
+                        <li><a href="city_insights.html" class="hover:text-white transition-smooth">City Insights</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">About Us</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Careers</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Press</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h3 class="font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-primary-200">
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Help Center</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Safety</a></li>
+                        <li><a href="javascript:void(0)" class="hover:text-white transition-smooth">Contact</a></li>
+                        <li><a href="account_dashboard.html" class="hover:text-white transition-smooth">Account</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-primary-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-primary-200 text-sm">
+                    © 2025 RideFlow. All Rights Reserved.
+                </p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Privacy</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Terms</a>
+                    <a href="javascript:void(0)" class="text-primary-200 hover:text-white transition-smooth">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Tab Functionality -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(targetTab + '-tab').classList.add('active');
+            });
+        });
+    </script>
+
+    <style>
+        .tab-button {
+            @apply flex items-center px-4 py-3 text-sm font-medium text-text-secondary border-b-2 border-transparent hover:text-primary hover:border-primary-200 transition-smooth whitespace-nowrap;
+        }
+        
+        .tab-button.active {
+            @apply text-primary border-primary;
+        }
+        
+        .tab-content {
+            @apply hidden;
+        }
+        
+        .tab-content.active {
+            @apply block;
+        }
+    </style>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
